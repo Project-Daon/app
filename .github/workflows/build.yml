@@ -36,6 +36,9 @@ jobs:
       - name: 🏗 Setup repo
         uses: actions/checkout@v2
 
+      - name: 🏗 Setup yarn berry
+        run: sudo chmod +x ./eas-hooks/eas-build-pre-install.sh & ./eas-hooks/eas-build-pre-install.sh &
+
       - name: 🏗 Setup Node
         uses: actions/setup-node@v2
         with:
@@ -50,7 +53,7 @@ jobs:
           eas-version: latest
 
       - name: 📦 Install dependencies
-        run: sudo chmod +x ./eas-hooks/eas-build-pre-install.sh & ./eas-hooks/eas-build-pre-install.sh & yarn
+        run: yarn
 
       - name: 👷 Build app
         run: |
