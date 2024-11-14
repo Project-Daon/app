@@ -53,7 +53,11 @@ jobs:
           eas-version: latest
           
       - name: 📦 Install java
-        run: sudo apt-get update & sudo apt-get upgrade & sudo apt install openjdk-17-jdk-headless
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'oracle'
+          java-version: '17'
+          cache: 'gradle'
 
       - name: 📦 Install dependencies
         run: yarn
