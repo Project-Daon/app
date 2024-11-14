@@ -1,0 +1,15 @@
+{
+  "expo": {
+    "name": "app",
+    "slug": "app",
+    "version": "1.0.0",
+    "android": {
+      "package": "com.anonymous.app"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "b5c9dd94-2d42-430b-8c66-3536904b9827"
+      }
+    }
+  }
+}
