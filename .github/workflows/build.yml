@@ -66,7 +66,7 @@ jobs:
         run: |
           eas build --local \
             --non-interactive \
-            --output=./app-build/daon \
+            --output=./build/daon \
             --platform=${{ github.event.inputs.platform }} \
             --profile=${{ github.event.inputs.profile }}
 
@@ -74,4 +74,4 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: apk
-          path: ./app-build
+          path: build
