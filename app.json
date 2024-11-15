@@ -10,6 +10,9 @@
       "eas": {
         "projectId": "890d90a5-d09d-4154-8940-dd1e73159cdd"
       }
+    },
+    "ios": {
+      "bundleIdentifier": "today.daon"
     }
   }
 }

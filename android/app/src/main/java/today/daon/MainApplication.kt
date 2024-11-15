@@ -1,4 +1,4 @@
-package com.anonymous.app
+package today.daon
 
 import android.app.Application
 import android.content.res.Configuration
