@@ -66,10 +66,12 @@ jobs:
         run: |
           eas build --local \
             --non-interactive \
-            --output=./app-build \
+            --output=./app-build/daon \
             --platform=${{ github.event.inputs.platform }} \
             --profile=${{ github.event.inputs.profile }}
 
       - name: 🚢 Submit
-        if: ${{ github.event.inputs.should_submit }}
-        run: eas submit -p ${{ github.event.inputs.platform }} --profile ${{ github.event.inputs.profile }} --path app-build
+        uses: actions/upload-artifact@v3
+        with:
+          name: apk
+          path: ./app-build
