@@ -64,7 +64,8 @@ jobs:
 
       - name: 📦 Generate Android Keytool
         if: "${{ github.event.inputs.platform == 'android' }}"
-        run: sudo keytool -genkey -v -keystore ./android/app/my-release-key.keystore -dname "CN=Dohan Kwon, OU=Daon, O=Daon, L=Republic of Korea, ST=Seoul, C=ko" -storepass ${{ secrets.ANDROID_KEYSTORE_PASSWORD }} -keypass ${{ secrets.ANDROID_KEYSTORE_KEY_PASSWORD }} -alias ${{ secrets.ANDROID_KEYSTORE_ALIAS }} -keyalg RSA -keysize 2048 -validity 10000
+        continue-on-error: true
+        run: sudo keytool -keyalg DSA -genkeypair -v -keystore ./android/app/my-release-key.keystore -dname "CN=Dohan Kwon, OU=Daon, O=Daon, L=Republic of Korea, ST=Seoul, C=ko" -storepass ${{ secrets.ANDROID_KEYSTORE_PASSWORD }} -keypass ${{ secrets.ANDROID_KEYSTORE_KEY_PASSWORD }} -alias ${{ secrets.ANDROID_KEYSTORE_ALIAS }} -keyalg RSA -keysize 2048 -validity 10000
 
       - name: 👷 Build app
         run: |
