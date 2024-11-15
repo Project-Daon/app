@@ -66,7 +66,7 @@ jobs:
         run: |
           eas build --local \
             --non-interactive \
-            --output=./build/daon \
+            --output=./build/Daon.apk \
             --platform=${{ github.event.inputs.platform }} \
             --profile=${{ github.event.inputs.profile }}
 
