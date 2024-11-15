@@ -62,6 +62,10 @@ jobs:
       - name: 📦 Install dependencies
         run: yarn
 
+      - name: 📦 Generate Android Keytool
+        if: "${{ github.event.inputs.platform == 'android' }}"
+        run: sudo keytool -genkey -v -keystore ./android/app/my-release-key.keystore -dname "CN=Dohan Kwon, OU=Daon, O=Daon, L=Republic of Korea, ST=Seoul, C=ko" -storepass ${{ secrets.ANDROID_KEYSTORE_PASSWORD }} -keypass ${{ secrets.ANDROID_KEYSTORE_KEY_PASSWORD }} -alias ${{ secrets.ANDROID_KEYSTORE_ALIAS }} -keyalg RSA -keysize 2048 -validity 10000
+
       - name: 👷 Build app
         run: |
           eas build --local \
@@ -70,7 +74,7 @@ jobs:
             --platform=${{ github.event.inputs.platform }} \
             --profile=${{ github.event.inputs.profile }}
         env:
-          ANDROID_KEYSTORE_FILE: android/app/my-release-key.keystore
+          ANDROID_KEYSTORE_FILE: ./android/app/my-release-key.keystore
           ANDROID_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
           ANDROID_KEYSTORE_ALIAS: ${{ secrets.ANDROID_KEYSTORE_ALIAS }}
           ANDROID_KEYSTORE_KEY_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_KEY_PASSWORD }}
