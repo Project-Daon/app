@@ -32,7 +32,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: 🏗 Setup yarn berry
-        run: sudo chmod +x ./eas-hooks/eas-build-pre-install.sh & ./eas-hooks/eas-build-pre-install.sh &
+        run: sudo npm install -g corepack & sudo corepack enable
 
       - name: 🏗 Setup Node
         uses: actions/setup-node@v2
