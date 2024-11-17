@@ -14,6 +14,6 @@
     <item name="windowSplashScreenBackground">@color/splashscreen_background</item>
     <item name="android:windowSplashScreenIconBackgroundColor">@color/colorPrimary</item>
     <item name="postSplashScreenTheme">@style/AppTheme</item>
-    <item name="windowSplashScreenAnimatedIcon">@mipmap/ic_launcher</item>
+    <item name="windowSplashScreenAnimatedIcon">@drawable/splash_icon</item>
   </style>
 </resources>
