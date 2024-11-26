@@ -55,7 +55,7 @@ const AppContent = ({ webviewRef, canGoBack, setCanGoBack }) => {
     <View style={{ paddingTop: insets.top, paddingBottom: insets.bottom, backgroundColor: '#343a40', flex: 1 }}>
       <WebView
         ref={webviewRef}
-        source={{ uri: 'https://app.daon.today/' }}
+        source={{ uri: 'https://beta.daon.today/' }}
         onNavigationStateChange={(navState) => setCanGoBack(navState.canGoBack)}
       />
     </View>
